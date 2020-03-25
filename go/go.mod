@@ -1,4 +1,4 @@
-module github.com/llnw/edgefunctions-runtimes/go
+module github.com/llnw/llnw-edgefunctions-runtimes/go
 
 go 1.14
 
