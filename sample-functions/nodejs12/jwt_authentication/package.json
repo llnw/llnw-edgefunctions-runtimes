@@ -1,0 +1,16 @@
+{
+  "name": "jwt-auth",
+  "version": "1.0.0",
+  "description": "jwt authentication EdgeFunctions function",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^2.6.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
