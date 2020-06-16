@@ -34,6 +34,9 @@ func Start(handler interface{}) {
 	defer file.Close()
 
 	handlerWrapper := NewHandler(handler)
+	r := &invokeResponseWrapper{}
+	r.Payload, _ = json.Marshal("ok")
+	writeResponse(r, file)
 
 	for {
 		processRequest(handlerWrapper, file)
