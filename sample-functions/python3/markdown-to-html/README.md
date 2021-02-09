@@ -4,7 +4,7 @@ An EdgeFunctions function must export a handler as the entry point for the appli
 
 Function Description
 ====================
-**HTML to Markdown Converter**
+**Markdown to HTML Converter**
 
 This function converts one or more [markdown files](https://en.wikipedia.org/wiki/Markdown) to HTML using the [Python-Markdown](https://pypi.org/project/Markdown/) library.
 
