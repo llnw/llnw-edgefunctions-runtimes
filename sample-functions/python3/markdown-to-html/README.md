@@ -31,7 +31,7 @@ Environment variables set the default behavior of the function. For example:
     [
         {
             "name":"path",
-            "value":"https://support.limelight.com/public/demo/ef/markdown"
+            "value":"https://support.limelight.com/public/demo/files/ef/markdown"
         },
         {
             "name":"doc",
