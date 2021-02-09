@@ -17,7 +17,7 @@ Parameters
 This function requires two parameters, `path` and `doc`, which can be provided in either the Environment Variables or in the query string. The optional parameters `ext` and `format` can also be provided by either approach.
 
 * `path` = the fully-qualified path to the converted file(s)
-* `doc` = a comma-separated list of input filenames (without extensions)
+* `doc` = a comma-separated list of input filenames (without extensions); documents are concatenated in the response in the order listed
 * `ext` (optional) = the file extension to append to the filename(s) specified in the doc parameter; default = `md`
 * `format` (optional) = the content format to return; default = `html`
   * `html` returns the markdown converted to HTML
