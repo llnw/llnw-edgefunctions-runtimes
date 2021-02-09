@@ -81,6 +81,7 @@ def handler(payload, context):
     # convert the document name(s) to an array
     docs = doc.split(",")
     result = "" if format != "json" else {"results": []}
+    type = "text/html" if format != "json" else "application/json"
     
     for doc in docs:
         # get the markdown text
@@ -96,17 +97,12 @@ def handler(payload, context):
                 md = html.escape(md, quote=True)
                 
                 result["results"].append({"doc": doc, "html": md, "markdown": text})
+            elif format == "html":
+                # append the converted markdown (HTML)
+                result += convert(text)
             else:
-                if result != "":
-                    # insert a break in the results
-                    result += "<p>&nbsp;</p>"
-                    
-                if format == "html":
-                    # append the converted markdown (HTML)
-                    result += convert(text)
-                else:
-                    # append the original markdown
-                    result += "<pre>" + text + "</pre>"
+                # append the original markdown wrapped in pre tags for better readability in browsers
+                result += "<pre>" + text + "</pre>"
         else:
             # fail - return the error code and body
             return {
@@ -119,7 +115,10 @@ def handler(payload, context):
         result = json.dumps(result)
     return {
         "statusCode": 200,
-        "body": result
+        "body": result,
+        "headers": {
+            "Content-Type": type
+        }
     }
 
 # def test():
