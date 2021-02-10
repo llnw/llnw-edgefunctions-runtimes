@@ -14,7 +14,7 @@ Before creating the ZIP achive for this function, you'll need to install the fol
 
 Parameters
 =====================
-This function requires two parameters, `path` and `doc`, which can be provided in either the Environment Variables or in the query string. The optional parameters `ext` and `format` can also be provided by either approach.
+This function requires two parameters, `path` and `doc`, which can be provided in either the Environment Variables or in the query string. The optional parameters `ext`, `format` and `encode` can also be provided by either approach.
 
 * `path` = the fully-qualified path to the converted file(s)
 * `doc` = a comma-separated list of input filenames (without extensions); documents are concatenated in the response in the order listed
@@ -23,6 +23,9 @@ This function requires two parameters, `path` and `doc`, which can be provided i
   * `html` returns the markdown converted to HTML
   * `markdown` returns the original markdown wrapped in HTML "pre" tags
   * `json` returns the results in a JSON object with the form: {"results": [{"doc": "{filename}", "html": "{output}", "markdown": "{input}"}]}
+* `encode` = whether to encode response HTML when `format=json`; default = `false`
+  * `false` returns unencoded HTML in JSON responses
+  * `true` returns encoded HTML in JSON responses; needed when HTML includes the `"` character
 
 Environment Variables
 =====================
