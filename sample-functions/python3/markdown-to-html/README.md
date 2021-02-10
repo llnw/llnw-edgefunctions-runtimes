@@ -1,4 +1,4 @@
-EdgeFunctions Functions Layout
+EdgeFunctions Function Layout
 ==============================
 EdgeFunctions functions must export a handler as the entry point for the application. This function uses the standard naming convention of `index.handler`.
 
