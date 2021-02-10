@@ -70,12 +70,30 @@ def handler(payload, context):
     if format == "" or format is None:
         return {
             "statusCode": 500,
-            "body": "Format name is empty"
+            "body": "Format value is empty"
         }
     elif format not in ["markdown", "html", "json"]:
         return {
             "statusCode": 500,
-            "body": "Unexpected format '" + format + "'"
+            "body": "Unexpected format value '" + format + "' (expected 'markdown', 'html' or 'json')"
+        }
+    
+    # get html encoding (optional) from queries or environment variables
+    encode = "false"
+    if "encode" in queries.keys():
+        encode = queries["encode"].strip()
+    elif "encode" in envar:
+        encode = envar["encode"].strip()
+    
+    if encode == "" or encode is None:
+        return {
+            "statusCode": 500,
+            "body": "Encode value is empty"
+        }
+    elif encode not in ["true", "false"]:
+        return {
+            "statusCode": 500,
+            "body": "Unexpected encode value '" + encode + "' (expected 'true' or 'false')"
         }
     
     # convert the document name(s) to an array
@@ -94,7 +112,8 @@ def handler(payload, context):
             if format == "json":
                 # append the result as an object
                 md = convert(text)
-                md = html.escape(md, quote=True)
+                if encode == "true":
+                    md = html.escape(md, quote=True)
                 
                 result["results"].append({"doc": doc, "html": md, "markdown": text})
             elif format == "html":
@@ -131,7 +150,9 @@ def handler(payload, context):
        # "multiValueHeaders": {},
        # "queries": {
            # "path": "https://support.limelight.com/public/demo/files/ef/markdown",
-           # "doc": "demo-markdown-to-html"
+           # "doc": "a",
+           # "format": "json",
+           # "encode": "true"
        # },
        # "multiValueQueries": {},
        # "body": "",
