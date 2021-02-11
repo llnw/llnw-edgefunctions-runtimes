@@ -140,27 +140,3 @@ def handler(payload, context):
             "X-LLNW-Faas-Collect-Stdio": "1"
         }
     }
-
-# def test():
-    # payload = {
-       # "httpMethod": "",
-       # "remoteAddress": "",
-       # "host": "",
-       # "path": "",
-       # "headers": {},
-       # "multiValueHeaders": {},
-       # "queries": {
-           # "path": "https://support.limelight.com/public/demo/files/ef/markdown",
-           # "doc": "a",
-           # "format": "json",
-           # "encode": "true"
-       # },
-       # "multiValueQueries": {},
-       # "body": "",
-       # "isBase64Encoded": False
-    # }
-    
-    # result = handler(payload, '')
-    # return (result)
-
-# print (test())
