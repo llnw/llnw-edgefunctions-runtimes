@@ -1,3 +1,5 @@
+.gitignore
 **/
 typing_extensions.py
 zipp.py
+*.zip
