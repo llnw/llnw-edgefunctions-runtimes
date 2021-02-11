@@ -136,7 +136,8 @@ def handler(payload, context):
         "statusCode": 200,
         "body": result,
         "headers": {
-            "Content-Type": type
+            "Content-Type": type,
+            "X-LLNW-Faas-Collect-Stdio": "1"
         }
     }
 
