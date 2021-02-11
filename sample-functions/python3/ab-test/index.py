@@ -46,7 +46,9 @@ def handler(request, context):
 
         filtered = list(filter(lambda host: host['weight'] > random, hosts))
 
-        redirect = filtered[0]['name'] + "/" + path
+        if path:
+            path = "/" + path
+        redirect = filtered[0]['name'] + path
 
         return {
             'statusCode': 302,
