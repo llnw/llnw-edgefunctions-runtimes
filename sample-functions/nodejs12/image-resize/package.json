@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "hex-rgb": "^3.0.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "msgpack5": "^4.2.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
